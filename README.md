@@ -1,4 +1,4 @@
-# react-hangman
+# React Hangman Game
 A React hangman game exercise.
 
 ## The Goal
