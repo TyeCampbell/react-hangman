@@ -46,7 +46,7 @@ Add more CSS styling
 
 Here is how the code base looks from the beginning:
 
-![Preview of inital code base - hangman game](docs/preview.gif)
+![Preview of inital code base - hangman game](docs/preview.png)
 
 
 ## My Finished Project
