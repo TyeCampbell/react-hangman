@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Hangman.css";
+import { randomWord } from "./words";
 import img0 from "./0.jpg";
 import img1 from "./1.jpg";
 import img2 from "./2.jpg";
@@ -20,9 +21,10 @@ class Hangman extends Component {
     this.state = { 
       nWrong: 0, 
       guessed: new Set(), 
-      answer: "apple" 
+      answer: randomWord(),
     };
     this.handleGuess = this.handleGuess.bind(this);
+    this.gameReset = this.gameReset.bind(this);
   }
 
   /** guessedWord: show current-state of word:
@@ -60,25 +62,43 @@ class Hangman extends Component {
     ));
   }
 
+  // resets the current game and set a new word
+  gameReset() {
+    this.setState({
+      nWrong: 0,
+      guessed: new Set(),
+      answer: randomWord(),
+    })
+  }
+
   /** render: render game */
   render() {  
     let showBtns; 
     if (this.state.nWrong < this.props.maxWrong) {
       showBtns = <p className='Hangman-btns'>{this.generateButtons()}</p>
+      console.log(this.state.answer);
+      console.log(this.state.guessed);
     } else {
     showBtns = <p className='Hangman-youLose'>You Lose! The word was <span style={{color: 'red'}}>{this.state.answer.toUpperCase()}</span>. Game over.</p>
+    }
+
+    if (this.state.answer === this.state.guessed) {
+      showBtns = <p className='Hangman-youWin'>You win!</p>
     }
 
     return (
       <div className='Hangman'>
         <h1>Hangman</h1>
         <img src={this.props.images[this.state.nWrong]} alt={`Guesses remain: ${this.state.nWrong}/${this.props.maxWrong}`}/>
-        <p>Number of guesses remaining: {this.props.maxWrong - this.state.nWrong}</p>
         <p className='Hangman-word'>{this.guessedWord()}</p>
+        <p>Number of guesses remaining: {this.props.maxWrong - this.state.nWrong}</p>
         {/* {this.state.nWrong !== this.props.maxWrong && 
           <p className='Hangman-btns'>{this.generateButtons()}</p>
         } */}
         {showBtns}
+        <div>
+      <button className='btn-restart' onClick={this.gameReset}>Restart </button>
+        </div>
       </div>
     );
   }
