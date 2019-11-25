@@ -73,20 +73,18 @@ class Hangman extends Component {
 
   /** render: render game */
   render() {  
-    
-    let checkForAnswerArray = this.state.answer.split("").map(ltr => this.state.guessed.has(ltr));
-    
-    let showBtns; 
+        
+    let displayWinLoseOrButtons; 
 
     if (this.state.nWrong < this.props.maxWrong) {
-      showBtns = <p className='Hangman-btns'>{this.generateButtons()}</p>
+      displayWinLoseOrButtons = <p className='Hangman-btns'>{this.generateButtons()}</p>
       console.log(this.state.answer);
     } else {
-    showBtns = <p className='Hangman-youLose'>You Lose! The word was <span style={{color: 'red'}}>{this.state.answer.toUpperCase()}</span>. Game over.</p>
+    displayWinLoseOrButtons = <p className='Hangman-youLose'>You Lose! The word was <span style={{color: 'red'}}>{this.state.answer.toUpperCase()}</span>. Game over.</p>
     }
 
-    if (checkForAnswerArray.every(x => x === true)) {
-      showBtns = <p className='Hangman-youWin'>You win!</p>
+    if (this.state.answer.split("").map(ltr => this.state.guessed.has(ltr)).every(x => x === true)) {
+      displayWinLoseOrButtons = <p className='Hangman-youWin'>You win!</p>
     }
 
     return (
@@ -98,7 +96,7 @@ class Hangman extends Component {
         {/* {this.state.nWrong !== this.props.maxWrong && 
           <p className='Hangman-btns'>{this.generateButtons()}</p>
         } */}
-        {showBtns}
+        {displayWinLoseOrButtons}
         <div>
       <button className='btn-restart' onClick={this.gameReset}>Restart </button>
         </div>
