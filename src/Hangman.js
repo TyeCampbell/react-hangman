@@ -73,16 +73,19 @@ class Hangman extends Component {
 
   /** render: render game */
   render() {  
+    
+    let checkForAnswerArray = this.state.answer.split("").map(ltr => this.state.guessed.has(ltr));
+    
     let showBtns; 
+
     if (this.state.nWrong < this.props.maxWrong) {
       showBtns = <p className='Hangman-btns'>{this.generateButtons()}</p>
       console.log(this.state.answer);
-      console.log(this.state.guessed);
     } else {
     showBtns = <p className='Hangman-youLose'>You Lose! The word was <span style={{color: 'red'}}>{this.state.answer.toUpperCase()}</span>. Game over.</p>
     }
 
-    if (this.state.answer === this.state.guessed) {
+    if (checkForAnswerArray.every(x => x === true)) {
       showBtns = <p className='Hangman-youWin'>You win!</p>
     }
 
