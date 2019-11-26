@@ -42,7 +42,7 @@ The AlphaButtons component renders a sequence of buttons corresponding to letter
 # Additional Ideas
 
 Add a message if the player wins (guesses all the letters)
-Add more CSS styling
+Add more CSS styling -- in which I changed the look and created my own images for the theme of this app.
 
 Here is how the code base looks from the beginning:
 
@@ -51,11 +51,12 @@ Here is how the code base looks from the beginning:
 
 ## My Finished Project
 
-In progress... 💻
+![Preview of inital code base - hangman game](docs/finalpreview.gif)
+
+[Click here](https://tyecampbell-hangman.netlify.com) to preview a live example. 
 
 ##### What I Learned
 
-Still learning... 😉
+My biggest take away from this exercise was understanding how to render specific information based on conditions. First time using Set() and and so I had to learn how that works. 
 
-
-:thumbsup: *Thanks for checking out my work on GitHub! For more about me find me on Twitter @TyeDev or vist my personal website at www.TyeCampbell.com.*
+:thumbsup: *Thanks for checking out my work on GitHub! For more about me find me on Twitter [@TyeDev](https://twitter.com/tyedev) or vist my personal website [TyeCampbell.com](www.TyeCampbell.com).*
