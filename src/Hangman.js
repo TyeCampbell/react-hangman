@@ -89,7 +89,7 @@ class Hangman extends Component {
         <h1>Hangman</h1>
         <img className='Hangman-img' src={this.props.images[this.state.nWrong]} alt={`Guesses remain: ${this.state.nWrong}/${this.props.maxWrong}`}/>
         <p className='Hangman-word'>{this.guessedWord()}</p>
-        <p>Number of guesses remaining: {this.props.maxWrong - this.state.nWrong}</p>
+        <p className='Hangman-guesses'>Number of guesses remaining: {this.props.maxWrong - this.state.nWrong}</p>
         {gameState}
         <div>
       <button className='btn-restart' onClick={this.gameReset}>Restart </button>
