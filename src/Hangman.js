@@ -81,13 +81,13 @@ class Hangman extends Component {
     }
 
     if (this.state.answer.split("").map(ltr => this.state.guessed.has(ltr)).every(x => x === true)) {
-      gameState = <p className='Hangman-youWin'>You win!</p>
+      gameState = <p className='Hangman-youWin'style={{color: 'green'}}>You win!</p>
     }
 
     return (
       <div className='Hangman'>
         <h1>Hangman</h1>
-        <img src={this.props.images[this.state.nWrong]} alt={`Guesses remain: ${this.state.nWrong}/${this.props.maxWrong}`}/>
+        <img className='Hangman-img' src={this.props.images[this.state.nWrong]} alt={`Guesses remain: ${this.state.nWrong}/${this.props.maxWrong}`}/>
         <p className='Hangman-word'>{this.guessedWord()}</p>
         <p>Number of guesses remaining: {this.props.maxWrong - this.state.nWrong}</p>
         {gameState}
