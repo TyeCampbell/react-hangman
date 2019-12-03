@@ -55,7 +55,7 @@
   color: #6C6F72;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .Hangman-guesses {
     font-size: .6em;
     margin: .5em;
