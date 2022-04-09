@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import "./Hangman.css";
 import { randomWord } from "./words";
-import img0 from "./0.png";
-import img1 from "./1.png";
-import img2 from "./2.png";
-import img3 from "./3.png";
-import img4 from "./4.png";
-import img5 from "./5.png";
-import img6 from "./6.png";
+import img0 from "./images/0.png";
+import img1 from "./images/1.png";
+import img2 from "./images/2.png";
+import img3 from "./images/3.png";
+import img4 from "./images/4.png";
+import img5 from "./images/5.png";
+import img6 from "./images/6.png";
 
 class Hangman extends Component {
   /** by default, allow 6 guesses and use provided gallows images. */
